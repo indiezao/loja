@@ -129,3 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
     changeText()
 })
 
+const searchInput = document.getElementById("searchInput")
+const searchBtn = document.getElementById("searchBtn")
+searchInput.addEventListener("input", function(){
+    searchInput.classList.add("inputTyped")
+    searchBtn.classList.add("inputTypedBtn")
+    setTimeout(() => {
+            searchInput.classList.remove("inputTyped")
+            searchBtn.classList.remove("inputTypedBtn")
+        }, 100)
+})

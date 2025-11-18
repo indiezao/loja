@@ -36,7 +36,7 @@
                     <input 
                         type="text" 
                         id="searchInput" 
-                        placeholder="Buscar produtos..." 
+                        placeholder="buscar produtos..." 
                         class="search-input">
                     
                         <button 
@@ -62,7 +62,7 @@
     </header>
 
     <div class="banner">
-        <p>Aproveite um cupom exclusivo na sua primeira compra!</p>
+        <p>aproveite um cupom exclusivo na sua primeira compra!</p>
 
         <img src="./img/cupom2.png" class="cupom-image">
 
@@ -70,17 +70,67 @@
     </div>
 
     <section class="hero">
-        <h1><span>Sua</span> casa do <span>seu</span> jeito</h1>
-        <p>Ofertas imperdíveis em <span class="dynamic-text" id="dynamic-text">roupas</span></p>
+        <h1><span>sua</span> casa do <span>seu</span> jeito</h1>
+        <p>ofertas imperdíveis em <span class="dynamic-text" id="dynamic-text">roupas</span></p>
     </section>
 
     <main class="main">
         <div class="container">
-            <div class="section-title">
-                <h2 class="section-text">Ofertas do Dia</h2>
+            <!-- card mais procurados (4 produtos) -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-text">
+                        <i class="fa-solid fa-heart"></i>
+                        <h2>os mais procurados</h2>
+                    </div>
+                    <div class="card-btn">
+                        <a class="clear-btn" id="clearBtn">ver mais <i class="fa-solid fa-circle-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Produtos aqui -->
+                </div>
             </div>
-            <div class="products-grid" id="productsGrid">
-                <!-- Produtos aqui -->
+
+            <!-- informaçoes do site -->
+             <div class="card">
+                <div class="card-title">
+                    <div class="card-text">
+                        <i class="fa-solid fa-store"></i>
+                        <h2>conheça a loja</h2>
+                    </div>
+                    <div class="card-btn">
+                        <a class="clear-btn" id="clearBtn">saiba mais <i class="fa-solid fa-circle-arrow-right"></i></a>
+                    </div>
+                </div>
+                 <div class="store-info-grid">
+                    <!-- Produtos aqui -->
+                    <div class="store-info">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                        <h3>entrega para todo o Brasil</h3>
+                        <p>acima de R$500,00</p>
+                    </div>
+                    <div class="store-info">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <h3>parcele no cartão ou pix</h3>
+                        <p>em até 10x</p>
+                    </div>
+                    <div class="store-info">
+                        <i class="fa-solid fa-lock"></i>
+                        <h3>compra segura</h3>
+                        <p>site 100% seguro</p>
+                    </div>
+                    <div class="store-info">
+                        <i class="fa-solid fa-headset"></i>
+                        <h3>consultoria online</h3>
+                        <p>suporte das 8:00 às 17:00</p>
+                    </div>
+                    <div class="store-info">
+                        <i class="fa-solid fa-coins"></i>
+                        <h3>cashback de 8%</h3>
+                        <p>em todas as compras</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

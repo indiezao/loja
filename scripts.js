@@ -19,11 +19,19 @@ const product_list = [
         price: 597.99,
         discount: 33,
         image: "https://images.unsplash.com/photo-1700382316747-e7023a94a393?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 4,
+        title: "Tocador de vinil",
+        price: 597.99,
+        discount: 33,
+        image: "https://images.unsplash.com/photo-1700382316747-e7023a94a393?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 ]
 
-const verticalScrollText = document.querySelectorAll(".vertical-text-scroll");
 
+
+// lista de palavras para o carrossel da telad e inicio
 const randomWordList = [
     "lâmpadas",
     "sofás",
@@ -35,6 +43,8 @@ const randomWordList = [
 ];
 
 let currentRandom = ""
+
+
 
 // formata o preço para o real
 function formatPrice(price){
@@ -73,12 +83,12 @@ function searchProducts(){
 }
 
 
-
+// pega uma palavra aleatoria da lista
 function getRandomWord(){
     const randomWord = randomWordList[Math.floor(Math.random() * randomWordList.length)]
     if (randomWord == currentRandom){
         getRandomWord()
-        return randomWordList[0]
+
     } else {
         currentRandom = randomWord
         return currentRandom
@@ -86,7 +96,7 @@ function getRandomWord(){
 }
 
 
-
+// muda o texto no timer e adiciona as classes para fazer a animação
 function changeText(){
     const dynamicText = document.getElementById("dynamic-text")
 
@@ -110,7 +120,7 @@ function changeText(){
 }
 
 
-
+// on ready
 document.addEventListener("DOMContentLoaded", () => {
     renderProductCard(product_list)
 

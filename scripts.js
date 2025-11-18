@@ -22,6 +22,19 @@ const product_list = [
     }
 ]
 
+const verticalScrollText = document.querySelectorAll(".vertical-text-scroll");
+
+const randomWordList = [
+    "lâmpadas",
+    "sofás",
+    "câmeras",
+    "video-games",
+    "consoles",
+    "celulares",
+    "roupas"
+];
+
+let currentRandom = ""
 
 // formata o preço para o real
 function formatPrice(price){
@@ -32,12 +45,14 @@ function formatPrice(price){
 // criar cards de produtos
 function createProductCard(product){
     return `
+    <div class="product-card-back">
         <div class="product-card">
             <img src="${product.image}" alt="${product.title}" class="prodcut-image">
             <h3 class="product-title">${product.title.toLowerCase()}</h3>
             <div class="product-price">${formatPrice(product.price)}</div>
             <div class="product-discount">${product.discount}% OFF</div>
         </div>
+    </div>
     `
 }
 
@@ -59,9 +74,48 @@ function searchProducts(){
 
 
 
+function getRandomWord(){
+    const randomWord = randomWordList[Math.floor(Math.random() * randomWordList.length)]
+    if (randomWord == currentRandom){
+        getRandomWord()
+        return randomWordList[0]
+    } else {
+        currentRandom = randomWord
+        return currentRandom
+    }
+}
+
+
+
+function changeText(){
+    const dynamicText = document.getElementById("dynamic-text")
+
+    dynamicText.classList.add("fade-out")
+
+    setTimeout(() => {
+        dynamicText.textContent = getRandomWord(currentRandom)
+        dynamicText.classList.remove("fade-out")
+        dynamicText.classList.add("fade-in")
+
+        setTimeout(() => {
+            dynamicText.classList.remove("fade-in")
+            dynamicText.classList.add("fade-out")
+
+            changeText()
+        }, 2000)
+    }, 500)
+    
+    
+
+}
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     renderProductCard(product_list)
 
     document.getElementById("searchBtn").addEventListener("click", searchProducts)
+
+    changeText()
 })
 

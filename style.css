@@ -25,6 +25,7 @@ html {
 :root {
     --bg: #fefae0;
     --primary: #606c38;
+    --primary-darker: #283618;
     --secondary: #dda15e;
     --secondary-darker: #784c19;
     --light-gray: #f0f0f0;
@@ -133,6 +134,7 @@ body {
     font-size: 16px;
     outline: none;
     box-shadow: var(--shadow-light) 0px 0px 5px;
+    min-width: 360px;
 
     border: var(--secondary) solid 1px;
 
@@ -150,25 +152,27 @@ body {
 .sidebar {
     background-color: var(--primary);
     border: var(--primary) solid 1px;
-    border-radius: 0px 30px 30px 3px;
-    width: auto;
+    border-radius: 0px 25px 25px 40px;
+    width: 250px;
 
     margin-right: 20px;
 }
 
-.search-options {
-    font-size: 14px;
-    background-color: var(--secondary);
-    border-radius: 20px;
-    padding: 7px 14px;
-    width: auto;
+.search-option-hoverzone{
+    margin: 10px;
     display: flex;
-    margin: 10px 5px;
-    cursor: pointer;
-
     white-space: nowrap;
     align-items: center;
+    transition: var(--spring-transition);
+}
 
+.search-options {
+    font-size: 12px;
+    background-color: var(--secondary);
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 7px 14px;
+    width: 100%;
     transition: var(--spring-transition);
 }
 
@@ -177,11 +181,100 @@ body {
     margin-bottom: 2px;
 }
 
-.search-options:hover {
+.search-option-hoverzone:hover .search-options{
     background-color: var(--bg);
     letter-spacing: 1px;
-    font-size: 13px;
+    font-size: 11px;
     padding: 6px 13px;
+}
+
+.search-option-hoverzone:hover{
+    padding: 3px 0px;
+}
+
+.search-filter-separator {
+    padding: 0.5px;
+    margin: 0px 10px;
+    background-color: var(--primary-darker);
+}
+
+.search-filter-button {
+    font-size: 12px;
+    background-color: var(--secondary);
+    border-radius: 20px;
+    padding: 7px 14px;
+    width: auto;
+    display: flex;
+    margin: 10px;
+    cursor: pointer;
+
+    white-space: nowrap;
+    align-items: center;
+
+    position: relative;
+
+    transition: var(--spring-transition);
+}
+
+.search-filter-button p{
+    margin-right: auto;
+}
+
+.search-filter-button i {
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.down-arrow {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+}
+
+.search-filter-options{
+    display: none;
+    position: absolute;
+    background-color: var(--bg);
+    min-width: 170px;
+    box-shadow: rgb(0, 0, 0, 0.8) 0px 0px 5px;
+
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.search-filter-options a{
+    color: var(--black);
+    padding: 7px 14px;
+    text-decoration: none;
+    display: block;
+
+    justify-content: start;
+    transition: var(--spring-transition);
+    transition: background-color 0.2s;
+
+    border-radius: 15px;
+}
+
+.search-filter-options a:hover{
+    background-color: var(--secondary);
+    transition: var(--spring-transition);
+    letter-spacing: 1px;
+    font-size: 11px;
+}
+
+.search-filter-button-hover:hover .search-filter-button{
+    background-color: var(--bg);
+    letter-spacing: 1px;
+    font-size: 11px;
+    padding: 6px 13px;
+}
+
+.search-filter-button:hover .search-filter-options{
+    display: block;
+}
+
+.arrow {
+    float: right;
 }
 
 .inputTyped {
@@ -309,6 +402,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    padding: 0px 20px 20px 20px;
 }
 
 .products-grid-small {
@@ -316,6 +410,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     width: 100%;
+    padding: 0px 20px 20px 0px;
 }
 
 .product-card-back {
@@ -478,7 +573,8 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin: 5px 10px 10px 20px;
+    margin: 5px 10px 0px 20px;
+    padding: 15px 0px;
 }
 
 .card-title h2 {
@@ -501,8 +597,6 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: row;
-
-    margin-bottom: 5px;
 }
 
 .card-btn {
@@ -538,7 +632,7 @@ body {
 .container .card {
     background-color: var(--white);
     border-radius: 40px;
-    padding: 10px;
+    padding: 0px;
     box-shadow: var(--shadow) 0px 5px 10px;
 }
 

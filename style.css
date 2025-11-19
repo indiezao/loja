@@ -115,6 +115,10 @@ body {
     margin: 0px 20px;
 }
 
+.search-content {
+    display: flex;
+}
+
 .search-container {
     display: flex;
     align-items: center;
@@ -137,9 +141,47 @@ body {
 
 .search-input:hover {
     box-shadow: var(--shadow) 0px 0px 10px;
-    border: var(--secondary-darker) solid 2px;
+    border: var(--secondary) solid 0px;
+    background-color: var(--bg);
     font-size: 14px;
     letter-spacing: 2px;
+}
+
+.sidebar {
+    background-color: var(--primary);
+    border: var(--primary) solid 1px;
+    border-radius: 0px 30px 30px 3px;
+    width: auto;
+
+    margin-right: 20px;
+}
+
+.search-options {
+    font-size: 14px;
+    background-color: var(--secondary);
+    border-radius: 20px;
+    padding: 7px 14px;
+    width: auto;
+    display: flex;
+    margin: 10px 5px;
+    cursor: pointer;
+
+    white-space: nowrap;
+    align-items: center;
+
+    transition: var(--spring-transition);
+}
+
+.search-options i {
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.search-options:hover {
+    background-color: var(--bg);
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding: 6px 13px;
 }
 
 .inputTyped {
@@ -155,7 +197,7 @@ body {
 .search-btn {
     text-decoration: none;
     font-size: 16px;
-    color: var(--white);
+    color: var(--black);
     background-color: var(--secondary);
     padding: 10px 20px;
     border-radius: 0px 20px 20px 0px;
@@ -170,7 +212,8 @@ body {
 
 .search-btn:hover {
     box-shadow: var(--shadow) 0px 0px 10px;
-    border: var(--secondary-darker) solid 2px;
+    border: var(--secondary) solid 0px;
+    background-color: var(--bg);
     font-size: 14px;
     letter-spacing: 2px;
 }
@@ -178,7 +221,7 @@ body {
 .menu-btn {
     text-decoration: none;
     font-size: 16px;
-    color: var(--white);
+    color: var(--black);
     background-color: var(--secondary);
     padding: 10px 20px;
     border-radius: 20px;
@@ -194,7 +237,8 @@ body {
 
 .menu-btn:hover {
     box-shadow: var(--shadow) 0px 0px 10px;
-    border: var(--secondary-darker) solid 2px;
+    border: var(--secondary) solid 0px;
+    background-color: var(--bg);
     font-size: 14px;
     letter-spacing: 2px;
     margin: 1px;
@@ -207,7 +251,7 @@ body {
 .cart-btn {
     text-decoration: none;
     font-size: 16px;
-    color: var(--white);
+    color: var(--black);
     background-color: var(--secondary);
     padding: 10px 20px;
     border-radius: 20px 0px 0px 20px;
@@ -222,7 +266,8 @@ body {
 
 .cart-btn:hover {
     box-shadow: var(--shadow) 0px 0px 10px;
-    border: var(--secondary-darker) solid 2px;
+    border: var(--secondary) solid 0px;
+    background-color: var(--bg);
     font-size: 14px;
     letter-spacing: 2px;
 }
@@ -230,7 +275,7 @@ body {
 .account-btn {
     text-decoration: none;
     font-size: 16px;
-    color: var(--white);
+    color: var(--black);
     background-color: var(--secondary);
     padding: 10px 20px;
     border-radius: 0px 20px 20px 0px;
@@ -245,7 +290,8 @@ body {
 
 .account-btn:hover {
     box-shadow: var(--shadow) 0px 0px 10px;
-    border: var(--secondary-darker) solid 2px;
+    border: var(--secondary) solid 0px;
+    background-color: var(--bg);
     font-size: 14px;
     letter-spacing: 2px;
 }
@@ -265,9 +311,20 @@ body {
     gap: 20px;
 }
 
+.products-grid-small {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
 .product-card-back {
     background-color: var(--primary);
     border-radius: 30px;
+}
+
+.product-card-back.small {
+    border-radius: 25px;
 }
 
 .product-card {
@@ -279,7 +336,12 @@ body {
     border: 1.5px solid var(--primary);
 }
 
-.prodcut-image {
+.product-card.small {
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.product-image {
     object-fit: cover;
     width: 100%;
     height: 300px;
@@ -290,12 +352,23 @@ body {
     box-shadow: var(--shadow) 0 6px 10px;
 }
 
+.product-image.small {
+    height: 100px;
+}
+
 .product-title {
     font-size: 18px;
     margin-bottom: 8px;
     height: 24px;
-    overflow: hidden;
     color: var(--black);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.product-title.small {
+    font-size: 14px;
 }
 
 .product-price {
@@ -305,14 +378,30 @@ body {
     color: var(--black);
 }
 
+.product-price.small {
+    font-size: 18px;
+}
+
 .product-discount {
     font-size: 14px;
     font-weight: 700;
     color: #748d22;
 }
 
+.product-discount.small {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+}
+
 .product-card:hover {
     transform: translateY(-6px);
+    scale: 1 0.98;
+    box-shadow: var(--shadow) 0 6px 10px;
+}
+
+.product-card.small:hover {
+    transform: translateY(-3px);
     scale: 1 0.98;
     box-shadow: var(--shadow) 0 6px 10px;
 }

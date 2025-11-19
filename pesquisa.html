@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/img/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Decorações Vintage</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+                <a href="index.html">
+                    <img 
+                        alt="Logo" 
+                        src="https://png.pngtree.com/png-vector/20251028/ourlarge/pngtree-a-vintage-grocery-store-badge-with-green-and-cream-tones-png-image_17833532.webp" 
+                        class="logo">
+                </a>
+                <div class="navbar">
+                    <a href="#" class="menu-btn">moda</a>
+                    <a href="#" class="menu-btn">acessórios</a>
+                    <a href="#" class="menu-btn">móveis</a>
+                    <a href="#" class="menu-btn">eletrônicos</a>
+                    <a href="#" class="menu-btn">outros</a>
+                </div>
+
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="buscar produtos..." 
+                        class="search-input">
+                    
+                        <button 
+                            id="searchBtn" 
+                            class="search-btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                </div>
+
+                <div class="user-space">
+                    <button 
+                        id="cartBtn" 
+                        class="cart-btn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <button 
+                        id="accountBtn" 
+                        class="account-btn">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <p>aproveite um cupom exclusivo na sua primeira compra!</p>
+
+        <img src="./img/cupom2.png" class="cupom-image">
+
+        <p><span class="cupom">PRIMEIRA20</span> para até 20% de desconto</p>
+    </div>
+
+    <main class="main">
+        <div class="container">
+            <!-- card mais procurados (4 produtos) -->
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-text">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h2>mostrando 20 resultados</h2>
+                    </div>
+                </div>
+                <div class="search-content">
+                    <aside class="sidebar">
+                        <div>
+                            <div>
+                                <a class="search-options"><i class="fa-solid fa-truck-fast"></i> frete grátis</a>
+                                <a class="search-options"><i class="fa-solid fa-percent"></i> em promoção</a>
+                                <a class="search-options"><i class="fa-solid fa-certificate"></i> somente verificados</a>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="products-grid-small" id="productsGridSmall">
+                        <!-- Produtos aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Produtos Vintage usados ou semi-usados.</p>
+    </footer>
+
+    <script src="pesquisa.js"></script>
+</body>
+</html>

@@ -26,6 +26,20 @@ const product_list = [
         price: 597.99,
         discount: 33,
         image: "https://images.unsplash.com/photo-1700382316747-e7023a94a393?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 5,
+        title: "Tocador de vinil",
+        price: 597.99,
+        discount: 33,
+        image: "https://images.unsplash.com/photo-1700382316747-e7023a94a393?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 6,
+        title: "Tocador de vinil",
+        price: 597.99,
+        discount: 33,
+        image: "https://images.unsplash.com/photo-1700382316747-e7023a94a393?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 ]
 
@@ -52,15 +66,15 @@ function formatPrice(price){
 }
 
 
-// criar cards de produtos (para os produtos favoritos na pagina inicial)
-function createProductCard(product){
+// criar cards de produtos pequenos (para a pagina de pesquisa)
+function createProductCardSmall(product){
     return `
-    <div class="product-card-back">
-        <div class="product-card">
-            <img src="${product.image}" alt="${product.title}" class="product-image">
-            <h3 class="product-title">${product.title.toLowerCase()}</h3>
-            <div class="product-price">${formatPrice(product.price)}</div>
-            <div class="product-discount">${product.discount}% OFF</div>
+    <div class="product-card-back small">
+        <div class="product-card small">
+            <img src="${product.image}" alt="${product.title}" class="product-image small">
+            <h3 class="product-title small">${product.title.toLowerCase()}</h3>
+            <div class="product-price small">${formatPrice(product.price)}</div>
+            <div class="product-discount small">${product.discount}% OFF</div>
         </div>
     </div>
     `
@@ -69,9 +83,10 @@ function createProductCard(product){
 
 // mostrar cards dos produtos
 function renderProductCard(product_list){
-    const grid = document.getElementById("productsGrid");
-    grid.innerHTML = product_list.map(createProductCard).join("")
+    const gridSmall = document.getElementById("productsGridSmall");
+    gridSmall.innerHTML = product_list.map(createProductCardSmall).join("")
 }
+
 
 // pesquisa de produtos
 function searchProducts(){
@@ -82,41 +97,6 @@ function searchProducts(){
 }
 
 
-// pega uma palavra aleatoria da lista
-function getRandomWord(){
-    const randomWord = randomWordList[Math.floor(Math.random() * randomWordList.length)]
-    if (randomWord == currentRandom){
-        getRandomWord()
-
-    } else {
-        currentRandom = randomWord
-        return currentRandom
-    }
-}
-
-
-// muda o texto no timer e adiciona as classes para fazer a animação
-function changeText(){
-    const dynamicText = document.getElementById("dynamic-text")
-
-    dynamicText.classList.add("fade-out")
-
-    setTimeout(() => {
-        dynamicText.textContent = getRandomWord(currentRandom)
-        dynamicText.classList.remove("fade-out")
-        dynamicText.classList.add("fade-in")
-
-        setTimeout(() => {
-            dynamicText.classList.remove("fade-in")
-            dynamicText.classList.add("fade-out")
-
-            changeText()
-        }, 2000)
-    }, 500)
-    
-    
-
-}
 
 
 // on ready
@@ -124,8 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProductCard(product_list)
 
     document.getElementById("searchBtn").addEventListener("click", searchProducts)
-
-    changeText()
 })
 
 const searchInput = document.getElementById("searchInput")
